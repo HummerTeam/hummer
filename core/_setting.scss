@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+//----------------------------------------------------------------------------------------------------------------
+//   @description  设置相关(字体,颜色,zIndex)
+//   @author       Tongao(tongao@yhd.com)
+//   @date         2015-05-12 14:06:11
+//   @update       2015-05-12 14:06:11
+//----------------------------------------------------------------------------------------------------------------
+
+//------〔设置开关〕------------------------
+$lte7:               	true !default; //是否兼容ie6-7
+$filter:             	true !default; //滤镜兼容
+
+
+
+//------〔字体相关〕------------------------
+$baseFont:				"Helvetica Neue", Helvetica, Tahoma, sans-serif !default;
+$baseFontSize:			14px !default;
+$yh:					"Microsoft YaHei"; //微软雅黑
+$ar:					Arial;
+$cg:					'Century Gothic';
+$song:					"SimSun"; //宋体
+$ht:					"SimHei"; //黑体
+
+
+//------〔z-index相关〕---------------------
+$zindexHead:			100 !default;
+$zindexCentent:			1 !default;
+$zindexFoot:			100 !default;
+$zindexOther:			500 !default;
+$zindexDropdown:        1000 !default;
+$zindexFixedTopbar:     1010 !default;
+$zindexTooltip:         1020 !default;
+$zindexAlert:           1030 !default;
+$zindexModal:           1100 !default;
+
+//------〔color相关〕------------------------
+
+//link color
+$linkColor:				#333;
+$linkHoverColor:		#333;
+
+
+//by: https://github.com/mrmrs/colors/blob/master/sass/_variables.scss
+// Cool
+$aqua:  				#7FDBFF;
+$blue:  				#0074D9;
+$navy:  				#001F3F;
+$teal:  				#39CCCC;
+$green: 				#2ECC40;
+$olive: 				#3D9970;
+$lime:  				#01FF70;
+
+// Warm
+$yellow:  				#FFDC00;
+$orange:  				#FF851B;
+$red:     				#FF4136;
+$fuchsia: 				#F012BE;
+$purple:  				#B10DC9;
+$maroon:  				#85144B;
+
+// Gray Scale
+$white:  				#fff;
+$silver: 				#ddd;
+$gray:   				#aaa;
+$black:  				#111;
+$grayDarker:        	#333 !default;
+$grayDark:          	#999 !default;
+$gray:              	#ccc !default;
+
+
+

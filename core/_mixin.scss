@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+//----------------------------------------------------------------------------------------------------------------
+//   @description  mixin(居中,inline-block,float,hidden,hiden-text,一行文字省略,opacity,三角箭头,最小高度)
+//   @author       Tongao(tongao@yhd.com)
+//   @date         2015-05-11 16:36:11
+//   @update       2015-05-12 14:08:51
+//----------------------------------------------------------------------------------------------------------------
+
+//center-block
+@mixin center-block {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+//inline-block
+@mixin inline-block {
+	display: inline-block;
+	@if $lte7 {
+		*display: inline;
+		*zoom: 1; 
+	}
+}
+
+//float
+@mixin float($float: left) {
+	float: $float;
+	@if $lte7 {
+		display: inline;
+	}
+}
+
+//隐藏元素（显示和文字）
+@mixin hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+//clip方式隐藏只隐藏于视觉，屏幕浏览器可以阅读
+@mixin visually-hidden {
+	position: absolute;
+    @if $lte7 {
+		clip:rect(1px 1px 1px 1px);//ie6/7
+	}
+  clip:rect(1px, 1px, 1px, 1px);//standard
+}
+//隐藏文字1（如logo）
+@mixin ita{
+  font-size: 0;
+  line-height: 0;
+}
+
+//隐藏文字2（如logo）
+@mixin itb($height:99){
+  font: 0/0 a; //1
+  text-shadow: none;
+  border:0 none;
+  color: transparent; //2
+  @if $lte7{ 
+    _overflow:hidden; //3
+    _font-size: 10px; //3
+    _line-height: $height; //3
+  }
+}
+
+//一行文字省略方式1(需设置宽度)
+@mixin text-overflow($width: 100%) {
+	width: $width;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+//一行文字省略方式2(需设置宽度)
+%ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+@mixin ellipsis($width: 100%) {
+	@extend %text-overflow;
+	width: $width;
+}
+
+//opacity 透明度IE8以下使用filter
+@mixin opacity($opacity: 50) {
+	opacity: $opacity / 100;
+	@if $filter {
+		filter: alpha(opacity=$opacity);
+	}
+}
+
+//三角箭头 triangle(top, 5px, #DDD)
+%triangle-basic{
+  content:"";
+  height: 0;
+  width: 0;
+  overflow:hidden;
+}
+@mixin triangle($dir, $size, $borderColor ) {
+  @extend %triangle-basic;
+  @if $dir == top {
+    border-bottom:$size solid $borderColor;
+    border-left:$size dashed transparent;
+    border-right:$size dashed transparent;
+  } 
+  @else if $dir == right {
+    border-left:$size solid $borderColor;
+    border-top:$size dashed transparent;
+    border-bottom:$size dashed transparent;
+  } 
+  @else if $dir == bottom {
+    border-top:$size solid $borderColor;
+    border-left:$size dashed transparent;
+    border-right:$size dashed transparent;
+  } 
+  @else if $dir == left {
+    border-right:$size solid $borderColor;
+    border-top:$size dashed transparent;
+    border-bottom:$size dashed transparent;
+  }
+}
+
+//最小高度
+@mixin min-height($height){
+  min-height: $height;
+  height: auto !important;
+  @if $lte7{
+    _height: $height;
+  }
+}
